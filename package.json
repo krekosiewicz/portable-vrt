@@ -1,0 +1,38 @@
+{
+  "name": "portable-vrt",
+  "version": "0.1.0",
+  "description": "Deterministic, Docker-backed visual regression testing for any web app",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "bin": { "portable-vrt": "dist/cli.js" },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md", "SECURITY.md", "MIGRATION.md"],
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-runtime.mjs",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --import tsx tests/*.test.ts",
+    "test:all": "npm run check && npm test && npm run build && npm pack --dry-run",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@playwright/test": "1.61.1",
+    "playwright": "1.61.1",
+    "typescript": "5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "24.3.0",
+    "tsx": "4.20.5"
+  },
+  "publishConfig": { "access": "public", "provenance": true },
+  "repository": { "type": "git", "url": "git+https://github.com/krekosiewicz/portable-vrt.git" },
+  "bugs": { "url": "https://github.com/krekosiewicz/portable-vrt/issues" },
+  "homepage": "https://github.com/krekosiewicz/portable-vrt#readme",
+  "keywords": ["visual-regression", "playwright", "screenshots", "docker", "testing"]
+}
