@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20, registry-url: https://registry.npmjs.org }
+        with: { node-version: 24.12.0, registry-url: https://registry.npmjs.org }
       - run: npm ci
       - run: npm run test:all
       - run: test "v$(node -p \"require('./package.json').version\")" = "${{ github.event.release.tag_name }}"
