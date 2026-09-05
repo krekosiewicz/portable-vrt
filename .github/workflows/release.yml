@@ -19,4 +19,5 @@ jobs:
         run: |
           version="$(node -p "require('./package.json').version")"
           test "v${version}" = "${{ github.event.release.tag_name }}"
+      - run: npm install -g npm@12
       - run: npm stage publish
