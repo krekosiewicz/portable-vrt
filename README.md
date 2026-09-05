@@ -192,13 +192,6 @@ in the release notes.
 
 Paths are project-relative and may not escape the project root.
 
-## Adoption reports
-
-Whether this package is actually portable is measured, not asserted: every
-integration into a new project writes one report in
-[`adoption-reports/`](./adoption-reports/README.md), findings feed
-[`BACKLOG.md`](./BACKLOG.md), fixes land in the changelog.
-
 ## License
 
 MIT
