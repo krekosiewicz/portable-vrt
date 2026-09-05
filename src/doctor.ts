@@ -12,7 +12,7 @@ type Check = { name: string; ok: boolean; fix?: string; detail?: string };
 
 export const runDoctor = async (config: ResolvedConfig): Promise<Check[]> => {
   const checks: Check[] = [];
-  checks.push({ name: 'Node >= 20', ok: Number(process.versions.node.split('.')[0]) >= 20, detail: process.versions.node, fix: 'install Node.js 20 or newer' });
+  checks.push({ name: 'Node >= 24', ok: Number(process.versions.node.split('.')[0]) >= 24, detail: process.versions.node, fix: 'install Node.js 24 or newer (engines)' });
   const docker = await dockerAvailable();
   checks.push({ name: 'Docker daemon', ok: docker, detail: imageName(), fix: 'start Docker Desktop (macOS) or the Docker daemon (Linux)' });
   try { await exec('git', ['lfs', 'version'], { cwd: config.rootDir }); checks.push({ name: 'Git LFS', ok: true }); }

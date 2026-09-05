@@ -88,7 +88,9 @@ portable-vrt update
 
 `update` always renders every configured state and rejects `--grep`. Preview
 artifacts default to `vrt/.shots`, separate from committed baselines. Add that
-directory, `vrt/test-results`, and `vrt/playwright-report` to `.gitignore`.
+directory, `vrt/test-results`, `vrt/playwright-report`, and the transient
+`vrt/.portable-vrt-runtime` (written for each Docker run, removed after) to
+`.gitignore`.
 
 ## States and actions
 
@@ -189,6 +191,13 @@ in the release notes.
 | HTML report | `vrt/playwright-report` |
 
 Paths are project-relative and may not escape the project root.
+
+## Adoption reports
+
+Whether this package is actually portable is measured, not asserted: every
+integration into a new project writes one report in
+[`adoption-reports/`](./adoption-reports/README.md), findings feed
+[`BACKLOG.md`](./BACKLOG.md), fixes land in the changelog.
 
 ## License
 

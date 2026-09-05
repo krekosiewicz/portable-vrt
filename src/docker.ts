@@ -22,7 +22,7 @@ export const dockerAvailable = async (): Promise<boolean> => (await run('docker'
 export const imageName = (): string => `mcr.microsoft.com/playwright:v${playwrightVersion}-noble`;
 
 const runtimeFiles = async (config: ResolvedConfig, grep: string | undefined): Promise<{ directory: string; spec: string; pwConfig: string }> => {
-  const directory = resolve(config.rootDir, config.output.results, '.portable-vrt-runtime');
+  const directory = resolve(config.rootDir, config.output.results, '..', '.portable-vrt-runtime');
   await mkdir(directory, { recursive: true });
   const configModule = pathToFileURL(resolve(packageRoot, 'dist/config.js')).href;
   const renderModule = pathToFileURL(resolve(packageRoot, 'dist/render.js')).href;
