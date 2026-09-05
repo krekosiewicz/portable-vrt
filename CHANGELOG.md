@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2 - 2026-09-05
 
 - `update` rejects `--grep` as documented; filtered runs are `verify` only.
 - README and CI example say Node.js 24+ and `@0.1.1`, matching `engines`.
