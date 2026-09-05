@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- `update` rejects `--grep` as documented; filtered runs are `verify` only.
+- README and CI example say Node.js 24+ and `@0.1.1`, matching `engines`.
+
+## 0.1.1 - 2026-08-28
+
+- Release version check fix; Node engine raised to 24. First published version.
+
 ## 0.1.0 - 2026-08-28
 
 - Initial deterministic VRT, preview, probe, pixel, doctor, and CI workflow.

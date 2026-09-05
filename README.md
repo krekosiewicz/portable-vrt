@@ -10,11 +10,11 @@ fast previews and numeric probes. Only the container may write baselines.
 
 ## Ten-minute integration
 
-Requirements: Node.js 20+, npm, Docker on macOS or Linux, Git LFS, and a dev
+Requirements: Node.js 24+, npm, Docker on macOS or Linux, Git LFS, and a dev
 server that can bind to `0.0.0.0`.
 
 ```sh
-npm install --save-dev --save-exact portable-vrt@0.1.0
+npm install --save-dev --save-exact portable-vrt@0.1.1
 git lfs install
 git lfs track 'vrt/__screenshots__/**/*.png'
 ```

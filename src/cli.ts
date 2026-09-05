@@ -22,7 +22,10 @@ try {
   else if (command === 'probe') console.log(JSON.stringify(await runHost(config, positional[0]!, viewport, { kind: 'probe', selectors: positional[1]!.split(',').map((item) => item.trim()).filter(Boolean) }), null, 2));
   else if (command === 'pixel') console.log(JSON.stringify(await runHost(config, positional[0]!, viewport, { kind: 'pixel', specs: positional.slice(1) }), null, 2));
   else if (command === 'verify') await runDocker(config, false, value('--grep'));
-  else if (command === 'update') await runDocker(config, true, value('--grep'));
+  else if (command === 'update') {
+    if (value('--grep') !== undefined) throw new Error('update always renders every configured state; use `verify --grep` while iterating');
+    await runDocker(config, true);
+  }
   else throw new Error(`unknown command: ${command}\n\n${usage}`);
 } catch (error) {
   console.error(`portable-vrt: ${error instanceof Error ? error.message : String(error)}`); process.exitCode = 1;
