@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
-        with: { node-version: 26.8.1, registry-url: https://registry.npmjs.org }
+        with: { node-version: 24.20.0, registry-url: https://registry.npmjs.org }
       - run: npm ci
       - run: npm run test:all
       - name: Verify release tag matches package version
