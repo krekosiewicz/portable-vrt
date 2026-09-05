@@ -5,4 +5,5 @@ coverage/
 portable-vrt-report/
 portable-vrt-results/
 .portable-vrt/
-.idealocal-docs/
+.idea
+local-docs/
